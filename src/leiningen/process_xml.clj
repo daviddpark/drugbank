@@ -3,7 +3,8 @@
             [clj-http.client :as http]
             [clojure.java.io :as io])
   (:use
-   [clojure.data.xml]))
+   [clojure.data.xml]
+   [drugbank.util :only [config]]))
 
 (defn process-element [elem]
   (let [content (:content elem)
@@ -36,7 +37,7 @@
                    :content-type :json
                    :accept :json
                    :throw-exceptions false}
-          resp (http/post "http://localhost:3000/drug" req)]
+          resp (http/post (str (get-in config [:api :url]) "drug") req)]
       (if (= (:status resp) 409)
         (let [current-resp (http/get (:body resp) {:content-type :json :accept :json})
               current (json/parse-string (:body current-resp))
