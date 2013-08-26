@@ -1,0 +1,30 @@
+{
+    "drug": {
+        "_source": {"enabled": "true"},
+        "properties": {
+            "_links": {
+                "index": "not_analyzed",
+                "properties": {
+                    "self": {
+                        "index": "not_analyzed",
+                        "properties": {
+                            "href": {
+                                "type": "string", "index": "not_analyzed"
+                            }
+                        }
+                    }
+                }
+            },
+            "name": {
+                "type": "string"
+            },
+            "description": {
+                "type": "string"
+            },
+            "drugbank-id": {"type": "string", "index": "not_analyzed"},
+            "indication": {
+                "type": "string"
+            }
+        }
+    }
+}

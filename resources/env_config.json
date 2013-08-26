@@ -1,0 +1,39 @@
+{
+    "amqp": {
+        "host": "localhost",
+        "port": 5672,
+        "username": "guest",
+        "password": "guest",
+        "vhost": "/"
+    },
+    "elasticsearch": {
+        "url": "http://127.0.0.1:9200/",
+        "settings": {
+            "drugbank": {
+                "number_of_shards" : 1,
+                "number_of_replicas" : 1,
+                "index": {
+                    "analysis": {
+                        "analyzer": {
+                            "default_index": {
+                                "tokenizer": "standard",
+                                "filter": ["standard", "lowercase"]
+                            },
+                            "default_search": {
+                                "tokenizer": "standard",
+                                "filter": ["standard", "lowercase", "stop"]
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "mongo": {
+        "servers": "localhost",
+        "ports": "27017"
+    },
+    "prov": {
+        "data-url": "http://localhost:3030/prov/data?default"
+    }
+}

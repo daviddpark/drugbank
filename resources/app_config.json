@@ -1,0 +1,37 @@
+{
+    "amqp": {
+    },
+    "elasticsearch": {
+        "drugbank-idx": "drugbank",
+        "drug-type": "drug"
+    },
+    "mongo": {
+        "dbname": "drugbank",
+        "collections": {
+            "drug-archive": {
+                "name": "drug_resources_archive",
+                "indexes": {
+                    "url_idx": {
+                        "index": ["_links.self.href", 1],
+                        "extra": null
+                    },
+                    "url_version_idx": {
+                        "index": ["_links.self.href", 1, "version", 1],
+                        "extra": null
+                    }
+                }
+            },
+            "drug": {
+                "name": "drug_resources"
+            }
+        }
+    },
+    "namespaces": {
+        "oa": "http://data.lillycoi.com/activity/",
+        "ocin": "http://data.lillycoi.com/",
+        "og": "http://data.lillycoi.com/agent/",
+        "ot": "http://data.lillycoi.com/trial/",
+        "prov": "http://www.w3.org/ns/prov#",
+        "xsd": "http://www.w3.org/2000/10/XMLSchema#"
+    }
+}
