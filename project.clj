@@ -12,6 +12,7 @@
                  [com.novemberain/langohr "1.4.1"]
                  [com.novemberain/monger "1.6.0"]
                  [environ "0.4.0"]
+                 [lein-ring "0.8.6"]
                  [liberator "0.9.0"]
                  [org.clojure/clojure "1.5.1"]
                  [org.clojure/core.incubator "0.1.3"]
