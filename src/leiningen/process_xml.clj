@@ -16,7 +16,7 @@
                            (not has-attrs) (not is-multiple))
                     (first content)
                     (if is-multiple
-                      (apply conj (map process-element content))
+                      (apply conj [] (map process-element content))
                       (if (not (empty? content))
                         (apply merge (map process-element content))))
                     )}]
