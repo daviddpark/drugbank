@@ -1,4 +1,4 @@
-(ns leiningen.reset
+(ns drugbank.tasks.reset
   (:require
    [cheshire.core :as json]
    [clj-http.client :as http]
@@ -54,7 +54,7 @@
     (http/put (:data-url (:prov config)) req)))
 
 (defn reset
-  [project & args]
+  [& args]
   (warn "Resetting project.")
   (reset-mongo)
   (reset-es))

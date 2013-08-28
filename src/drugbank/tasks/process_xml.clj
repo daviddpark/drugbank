@@ -1,4 +1,4 @@
-(ns leiningen.process-xml
+(ns drugbank.tasks.process-xml
   (:require [cheshire.core :as json]
             [clj-http.client :as http]
             [clojure.java.io :as io])
@@ -55,7 +55,7 @@
   ;(println "process-partner")
   )
 
-(defn process-xml [project & args]
+(defn process-xml [& args]
   (let [drugs-file (if (empty? args)
                      "/tmp/drugbank.xml"
                      (first args))]

@@ -139,3 +139,9 @@
     (debug (str "elastic search drug by alias result: " (first results)))
     (if-let [result (first results)]
       (extract-resource-result result))))
+
+(defn augment-dbpedia-data [drugbank-id]
+  (let [sparql (str "select * where { ?s a <http://dbpedia.org/ontology/Drug> . "
+                    "                 ?s <http://dbpedia.org/ontology/drugbank> \""
+                    drugbank-id
+                    "\"@en . ?s ?p ?o .}")]))

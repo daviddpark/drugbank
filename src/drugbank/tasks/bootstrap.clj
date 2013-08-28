@@ -1,4 +1,4 @@
-(ns leiningen.bootstrap
+(ns drugbank.tasks.bootstrap
   (:require
    [cheshire.core :as json]
    [clojure.java.io :as io]
@@ -57,7 +57,7 @@
         ;(esi/delete (:google-loc-idx (:elasticsearch config)))
 
 (defn bootstrap
-  [project & args]
+  [& args]
   (info "Bootstrapping project.")
   (bootstrap-mongo)
   (bootstrap-es)
