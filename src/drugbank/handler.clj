@@ -52,7 +52,7 @@
 
 (def app
   (->   (handler/site app-routes)
-        (middleware/wrap-json-body)
+        ;(middleware/wrap-json-body)
         (keywordize-json-params)
         (middleware/wrap-json-params)
         (middleware/wrap-json-response {:pretty true})

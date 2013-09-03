@@ -31,14 +31,18 @@
                     (apply merge
                            (map process-element (:content elem))))
         json-drug (json/generate-string drug 
-                                        {:pretty true})]
+                                        {:pretty true})
+        url (str (get-in config [:api :url]) "drug")]
     (println "Finished processing drug " (:drugbank-id drug))
+    (println " ... posting to " url)
     (let [req {:body json-drug
                    :content-type :json
                    :accept :json
                    :throw-exceptions false}
-          resp (http/post (str (get-in config [:api :url]) "drug") req)]
-      (if (= (:status resp) 409)
+          resp (http/post url req)
+          status (:status resp)]
+      (println " ... status: " status)
+      (if (= status 409)
         (let [current-resp (http/get (:body resp) {:content-type :json :accept :json})
               current (json/parse-string (:body current-resp))
               current-version (get current "version")

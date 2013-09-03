@@ -29,8 +29,6 @@
            (let [informant (get-in context [:request :headers "informant"])
                  agent (get-in context [:request :headers "provagent"])
                  drug (get-in context [:request :json-params])]
-             (debug "DRUG POST:")
-             (debug drug)
              (if-let [orig-drug (drug-by-alias context (:drugbank-id drug))]
                (do (debug (str "Conflict detected, but be sure to check the score!" orig-drug))
                    {:conflict-msg (get-in orig-drug [:_links :self :href])})

@@ -7,7 +7,7 @@
         "vhost": "/"
     },
     "api": {
-        "url": "http://localhost:3000/"
+        "url": "http://localhost:8080/"
     },
     "elasticsearch": {
         "url": "http://127.0.0.1:9200/",

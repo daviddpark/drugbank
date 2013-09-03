@@ -22,6 +22,7 @@
                  [ring/ring-json "0.2.0"]]
   :repositories ^:replace [["ocin-api" "http://maven.lillycoi.com/nexus/content/repositories/ocin-api/"]]
   :ring {:handler drugbank.handler/app}
+  :immutant {:context-path "/drugbank"}
   :aliases {"bootstrap" ["trampoline" "run" "-m" "drugbank.tasks.bootstrap/bootstrap"]
             "process-indications" ["trampoline" "run" "-m" "drugbank.tasks.process-indications/process-indications"]
             "process-xml" ["trampoline" "run" "-m" "drugbank.tasks.process-xml/process-xml"]
